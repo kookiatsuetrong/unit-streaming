@@ -44,7 +44,7 @@ public class Media {
 		return creator;
 	}
 	public void setCreator(Creator c) {
-		this.creator = creator;
+		this.creator = c;
 	}
 }
 

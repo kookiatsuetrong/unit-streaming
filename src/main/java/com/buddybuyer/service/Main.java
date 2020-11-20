@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
 import com.buddybuyer.model.Media;
+import com.buddybuyer.model.Genre;
 import com.buddybuyer.model.Viewer;
 import com.buddybuyer.model.Creator;
 
@@ -52,6 +53,22 @@ public class Main {
 	   ทั้งหมดที่เป็น Favourite ร่วมกันของ a และ b
 	*/
 	Set<Media> listCommon(Viewer a, Viewer b) {
+		return null; // Write your code and remove this line
+	}
+	
+	/*
+	F: The method Set<String> listMedia(Viewer viewer) should return titles
+	   of all the media which belong to one of the viewer's favourite genres
+	*/
+	Set<String> listMedia(Viewer viewer) {
+		return null; // Write your code and remove this line
+	}
+	
+	/*
+	G: The method Set<String> listViewers(int age) should return
+	   name of all viewers of the specified age
+	*/
+	Set<String> listViewers(int age) {
 		return null; // Write your code and remove this line
 	}
 	
