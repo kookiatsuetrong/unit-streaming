@@ -48,6 +48,14 @@ public class Main {
 	}
 	
 	/*
+	E: คำสั่ง Set<Media> listCommon(Viewer a, Viewer b) จะส่งค่ากลับเป็น media
+	   ทั้งหมดที่เป็น Favourite ร่วมกันของ a และ b
+	*/
+	Set<Media> listCommon(Viewer a, Viewer b) {
+		return null; // Write your code and remove this line
+	}
+	
+	/*
 	X: The method Set<String> suggestMedia(Viewer viewer) should return titles
 	   of all the media that meet all the following criteria:
 	   1. Have a rating of four or higher

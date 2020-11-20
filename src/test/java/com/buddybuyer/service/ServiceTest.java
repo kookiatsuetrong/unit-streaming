@@ -22,12 +22,15 @@ public class ServiceTest {
 		Media m1 = new Media("M001", 1, g1, c1);
 		Media m2 = new Media("M002", 2, g1, c2);
 		Media m3 = new Media("M003", 3, g1, c3);
+		Media m4 = new Media("M004", 4, g2, c1);
+		Media m5 = new Media("M005", 5, g2, c2);
+		Media m6 = new Media("M006", 4, g2, c3);
 		media.add(m1);
 		media.add(m2);
 		media.add(m3);
-		media.add( new Media("M004", 4, g2, c1) );
-		media.add( new Media("M005", 5, g2, c2) );
-		media.add( new Media("M006", 4, g2, c3) );
+		media.add(m4);
+		media.add(m5);
+		media.add(m6);
 		viewer = new HashSet<>();
 		Viewer v1 = new Viewer("V1");
 		v1.likeMedia(m1);
@@ -117,7 +120,111 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE001() {
-		
-		
+		Main m = new Main(media, viewer);	
+		Media m1 = new Media("M001", 1, null, null);
+		Media m2 = new Media("M002", 2, null, null);
+		Media m3 = new Media("M003", 3, null, null);
+		Media m4 = new Media("M004", 4, null, null);
+		Media m5 = new Media("M005", 5, null, null);
+		Media m6 = new Media("M006", 4, null, null);
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		Set<Media> r = m.listCommon(v1, v2);
+		Set<Media> e = new HashSet<>();
+		e.add(m2);
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	public void testE002() {
+		Main m = new Main(media, viewer);	
+		Media m1 = new Media("M001", 1, null, null);
+		Media m2 = new Media("M002", 2, null, null);
+		Media m3 = new Media("M003", 3, null, null);
+		Media m4 = new Media("M004", 4, null, null);
+		Media m5 = new Media("M005", 5, null, null);
+		Media m6 = new Media("M006", 4, null, null);
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		v1.likeMedia(m3);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		Set<Media> r = m.listCommon(v1, v2);
+		Set<Media> e = new HashSet<>();
+		e.add(m3);
+		e.add(m2);
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	public void testE003() {
+		Main m = new Main(media, viewer);	
+		Media m1 = new Media("M001", 1, null, null);
+		Media m2 = new Media("M002", 2, null, null);
+		Media m3 = new Media("M003", 3, null, null);
+		Media m4 = new Media("M004", 4, null, null);
+		Media m5 = new Media("M005", 5, null, null);
+		Media m6 = new Media("M006", 4, null, null);
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		v1.likeMedia(m3);
+		v1.likeMedia(m4);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m2);
+		v2.likeMedia(m4);
+		Set<Media> r = m.listCommon(v1, v2);
+		Set<Media> e = new HashSet<>();
+		e.add(m4);
+		e.add(m2);
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	public void testE004() {
+		Main m = new Main(media, viewer);	
+		Media m1 = new Media("M001", 1, null, null);
+		Media m2 = new Media("M002", 2, null, null);
+		Media m3 = new Media("M003", 3, null, null);
+		Media m4 = new Media("M004", 4, null, null);
+		Media m5 = new Media("M005", 5, null, null);
+		Media m6 = new Media("M006", 4, null, null);
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		v1.likeMedia(m3);
+		v1.likeMedia(m4);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m5);
+		v2.likeMedia(m6);
+		Set<Media> r = m.listCommon(v1, v2);
+		Set<Media> e = new HashSet<>();
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	public void testE005() {
+		Main m = new Main(media, viewer);	
+		Media m1 = new Media("M001", 1, null, null);
+		Media m2 = new Media("M002", 2, null, null);
+		Media m3 = new Media("M003", 3, null, null);
+		Media m4 = new Media("M004", 4, null, null);
+		Media m5 = new Media("M005", 5, null, null);
+		Media m6 = new Media("M006", 4, null, null);
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		v1.likeMedia(m3);
+		v1.likeMedia(m4);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v2.likeMedia(m4);
+		Set<Media> r = m.listCommon(v1, v2);
+		Set<Media> e = new HashSet<>();
+		e.add(m4);
+		e.add(m3);
+		e.add(m1);
+		e.add(m2);
+		Assert.assertTrue( e.containsAll(r) );
 	}
 }

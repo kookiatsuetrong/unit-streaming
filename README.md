@@ -1,5 +1,4 @@
-# unit-streaming
-Unit Testing for Streaming Project
+# Streaming Project
 
 ## Collections
 
@@ -90,6 +89,8 @@ class Sample {
     }
 }
 ```
+ระบบขนาดใหญ่ต้องอ่านข้อมูลผ่าน getter เท่านั้น
+และเปลี่ยนข้อมูลผ่าน setter แต่ในตัวอย่างด้านบนไม่มี
 
 ## HashSet 
 ใน add() ของ HashSet จะเรียก hashCode() 

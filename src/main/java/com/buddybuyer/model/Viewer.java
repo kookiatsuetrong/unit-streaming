@@ -6,7 +6,12 @@ public class Viewer {
 	public Viewer(String name) {
 		this.name = name;
 	}
+	public Viewer(String name, int age) {
+		this(name);
+		this.age = age;
+	}
 	String name;
+	int age;
 	Set<Media> favouriteMedia  = new HashSet<>();
 	Set<Genre> favouriteGenres = new HashSet<>();
 	
@@ -22,12 +27,17 @@ public class Viewer {
 	public Set<Genre> getFavouriteGenres() {
 		return favouriteGenres;
 	}
-	
 	public String getName() { 
 		return name; 
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int a) {
+		age = a;
 	}
 	@Override public int hashCode() {
 		return name.hashCode();
