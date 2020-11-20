@@ -71,6 +71,25 @@ int count(List<Integer> data) {
     return t;
 }
 ```
+แบบฝึกหัด จาก Class ที่กำหนดให้ เขียน Method หาว่ามี Square กี่อัน
+```java
+class Rectangle {
+    public Rectangle(double w, double h) {
+        this.width = w;
+        this.height = h;
+    }
+    double width, height;
+    public double getWidth() { return width; }
+    public double getHeight() { return height; }
+}
+class Main {
+    int count(List<Rectangle> data) {
+        .
+        .
+        .
+    }
+}
+```
 
 ## HashSet 
 จะดูที่ hashCode() และ equals()
