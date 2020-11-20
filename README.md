@@ -3,10 +3,10 @@ Unit Testing for Streaming Project
 
 ## Collections
 
-ทั้ง List, Set และ Map จะเป็น interface
-ส่วน ArrayList และ LinkedList เป็น Implementation
-ของ List
-และ HashSet กับ TreeSet เป็น Implementation ของ Set
+ทั้ง List, Set และ Map เป็น interface
+* ArrayList และ LinkedList เป็น Implementation ของ List
+* HashSet กับ TreeSet เป็น Implementation ของ Set
+* HashMap กับ TreeMap เป็น Implementation ของ Map
 
 ```
 '-- List
