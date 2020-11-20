@@ -97,6 +97,51 @@ class Sample {
 และเรียก equals() เพื่อหาตัวซ้ำใน Slot นั้น
 ถ้าไม่มีตัวซ้ำก็ใส่ข้อมูลเข้าไป
 
+บาง Class ใช้จำนวนเต็มเป็นหมายเลขประจำตัว หรือ รหัสข้อมูล
+ก็ใช้เป็น hashCode() ได้
+หรือบาง Class ใช้ String เช่น Bar Code สินค้า
+ก็ส่ง hashCode() ของ String ออกมาแทน เช่น
+```java
+class Staff {
+    int code;
+
+    @Override 
+    public int hashCode() {
+        return code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Staff) {
+            Staff s = (Staff)o;
+            return code == s.code;
+        } else {
+            return false;
+        }
+    }
+}
+```
+หรือ
+```java
+class Staff {
+    String code;
+
+    @Override 
+    public int hashCode() {
+        return code.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Staff) {
+            Staff s = (Staff)o;
+            return code.equals(s.code);
+        } else {
+            return false;
+        }
+    }
+}
+```
 
 
 เข้าไปแล้วจะเจอหน้านี้
