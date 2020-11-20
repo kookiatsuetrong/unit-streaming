@@ -21,29 +21,29 @@ Unit Testing for Streaming Project
 ```
 
 ระบบขนาดใหญ่ นิยมบังคับชนิดข้อมูลมาด้วย เช่น
-```
+```java
 List<String> a = new ArrayList<>();
 Set<String> s = new HashSet<>();
 ```
 
 Method ที่ควรรู้
-```
-add("Latte")      ใส่คำว่า "Latte" เข้าไป
+```java
+add("Latte")      // ใส่คำว่า "Latte" เข้าไป
 
-remove("Latte")   เอาคำว่า "Latte" ตัวแรกออกไป
+remove("Latte")   // เอาคำว่า "Latte" ตัวแรกออกไป
 
-contains("Latte") ตรวจสอบดูว่ามี "Latte" หรือเปล่า
+contains("Latte") // ตรวจสอบดูว่ามี "Latte" หรือเปล่า
 
-size()            จำนวนข้อมูลที่มีทั้งหมด
+size()            // จำนวนข้อมูลที่มีทั้งหมด
 ```
 
 ใช้ Enhanced For-Loop จะง่ายกว่า
-```
+```java
 Set<String> users = new HashSet<>();
 users.add("Frank L");
 users.add("David B");
 for (String s : users) {
-	System.out.println(s);
+    System.out.println(s);
 }
 ```
 
@@ -53,9 +53,9 @@ List<Integer> a = new ArrayList<>();
 a.add(5);
 a.add(7);
 for (Integer i : a) {
-	if (i instanceof Integer) {
-		System.out.println("OK");
-	}
+    if (i instanceof Integer) {
+        System.out.println("OK");
+    }
 }
 ```
 
