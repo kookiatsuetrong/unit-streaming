@@ -20,10 +20,10 @@ Unit Testing for Streaming Project
     '-- TreeMap
 ```
 
-ระบบขนาดใหญ่ นิยมบังคับชนิดข้อมูลมาด้วย เช่น
+ระบบขนาดใหญ่ นิยมบังคับชนิดข้อมูล และตั้งชื่อตัวแปรเป็น Plural เช่น
 ```java
-List<String> a = new ArrayList<>();
-Set<String> s = new HashSet<>();
+List<String> data = new ArrayList<>();
+Set<String> users = new HashSet<>();
 ```
 
 Method ที่ควรรู้
@@ -56,6 +56,19 @@ for (Integer i : a) {
     if (i instanceof Integer) {
         System.out.println("OK");
     }
+}
+```
+
+ตัวอย่างการเขียน Method นับเลขคู่จาก List<Integer>
+```java
+int count(List<Integer> data) {
+    int t = 0;
+    for (Integer e : data) {
+        if (e % 2 == 0) {
+            t++;
+        }
+    }
+    return t;
 }
 ```
 
