@@ -48,7 +48,7 @@ for (String s : users) {
 ```
 
 พวก Primitive Data จะถูกแปลงเป็น Instance 
-```
+```java
 List<Integer> a = new ArrayList<>();
 a.add(5);
 a.add(7);
