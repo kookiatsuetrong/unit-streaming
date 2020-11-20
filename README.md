@@ -82,7 +82,7 @@ class Rectangle {
     public double getWidth() { return width; }
     public double getHeight() { return height; }
 }
-class Main {
+class Sample {
     int count(List<Rectangle> data) {
         .
         .
@@ -92,7 +92,10 @@ class Main {
 ```
 
 ## HashSet 
-จะดูที่ hashCode() และ equals()
+ใน add() ของ HashSet จะเรียก hashCode() 
+เพื่อหา Slot ที่เหมาะสม 
+และเรียก equals() เพื่อหาตัวซ้ำใน Slot นั้น
+ถ้าไม่มีตัวซ้ำก็ใส่ข้อมูลเข้าไป
 
 
 
