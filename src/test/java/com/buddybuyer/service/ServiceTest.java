@@ -19,13 +19,24 @@ public class ServiceTest {
 		Creator c2 = new Creator("C2");
 		Creator c3 = new Creator("C3");
 		media = new HashSet<>();
-		media.add( new Media("M001", 1, g1, c1) );
-		media.add( new Media("M002", 2, g1, c2) );
-		media.add( new Media("M003", 3, g1, c3) );
+		Media m1 = new Media("M001", 1, g1, c1);
+		Media m2 = new Media("M002", 2, g1, c2);
+		Media m3 = new Media("M003", 3, g1, c3);
+		media.add(m1);
+		media.add(m2);
+		media.add(m3);
 		media.add( new Media("M004", 4, g2, c1) );
 		media.add( new Media("M005", 5, g2, c2) );
 		media.add( new Media("M006", 4, g2, c3) );
 		viewer = new HashSet<>();
+		Viewer v1 = new Viewer("V1");
+		v1.likeMedia(m1);
+		v1.likeMedia(m2);
+		viewer.add(v1);
+		Viewer v2 = new Viewer("V2");
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		viewer.add(v2);
 	}
 	Set<Media> media;
 	Set<Viewer> viewer;
@@ -104,5 +115,9 @@ public class ServiceTest {
 		Set<Media> r = m.listMediaAtLeast(7);
 		Set<Media> e = new HashSet<>();
 		Assert.assertTrue( e.containsAll(r) );
+	}
+	public void testE001() {
+		
+		
 	}
 }
