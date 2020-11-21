@@ -9,26 +9,19 @@ public class User {
 	}
 	String name;
 	Set<User> friends = new HashSet<>();
+	Set<Movie> watchedList = new HashSet<>();
 	
 	public Set<User> getFriends() {
 		return friends;
 	}
 	
-	Set<Media> favouriteMedia  = new HashSet<>();
-	Set<Genre> favouriteGenres = new HashSet<>();
+	public Set<Movie> getWatchedList() {
+		return watchedList;
+	}
+	public void addToWatchedList(Movie m) {
+		watchedList.add(m);
+	}
 	
-	public void likeMedia(Media m) {
-		favouriteMedia.add(m);
-	}
-	public Set<Media> getFavouriteMedia() {
-		return favouriteMedia;
-	}
-	public void likeGenre(Genre g) {
-		favouriteGenres.add(g);
-	}
-	public Set<Genre> getFavouriteGenres() {
-		return favouriteGenres;
-	}
 	public String getName() { 
 		return name; 
 	}

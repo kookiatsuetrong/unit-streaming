@@ -1,6 +1,5 @@
 package com.buddybuyer.theatre;
 
-import com.buddybuyer.media.*;
 
 public class Movie {
 	public Movie(String title, int rating) {
@@ -9,8 +8,6 @@ public class Movie {
 	}
 	String title;
 	int rating;
-	Genre genre;
-	Creator creator;
 	
 	@Override public int hashCode() {
 		return title.hashCode();
@@ -33,18 +30,6 @@ public class Movie {
 	}
 	public void setRating(int r) {
 		this.rating = r;
-	}
-	public Genre getGenre() {
-		return genre;
-	}
-	public void setGenre(Genre g) {
-		this.genre = g;
-	}
-	public Creator getCreator() {
-		return creator;
-	}
-	public void setCreator(Creator c) {
-		this.creator = c;
 	}
 }
 

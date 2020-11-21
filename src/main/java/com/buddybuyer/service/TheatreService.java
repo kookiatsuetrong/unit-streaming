@@ -32,4 +32,12 @@ public class TheatreService {
 	Set<User> getCommonFriends(User u, User v) {
 		return null; // Remove this line to write your code.
 	}
+	
+	/*
+	Z:  Implement List<Movie> find(User user) method that will 
+		return a list of top four movie titles, that have been most 
+		watchlisted by friends of a given user.
+		Movies that have equal watchlist count, should be ordered 
+		alphabetically.
+	*/
 }
