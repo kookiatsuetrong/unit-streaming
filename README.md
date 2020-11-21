@@ -106,7 +106,7 @@ List สามารถเก็บตัวซ้ำได้ ถ้าต้�
 Collections.sort(data, (x,y) -> x.getName().compareTo(y.getName()) );
 ```
 
-ตัวอย่างการเรียงข้อมูลใน ArrayList
+ตัวอย่างการเรียงข้อมูลตามชื่อใน ArrayList ด้วย Comparator
 ```java
 import java.util.List;
 import java.util.ArrayList;
@@ -117,7 +117,7 @@ class Start {
 		data.add(new Student("Clare", 163.0));
 		data.add(new Student("Bob", 167.0));
 		data.add(new Student("David", 170.0));
-		data.add(new Student("Alice", 165.0));
+		data.add(new Student("Alice", 167.0));
 		Collections.sort(data, (x,y) -> x.getName().compareTo(y.getName()) );
 		for (Student s : data) {
 			System.out.println(s.name);
@@ -140,7 +140,47 @@ class Student {
 }
 ```
 
+ตัวอย่างการเรียงตามความสูงน้อยไปมาก แต่ถ้าความสูงเท่ากันก็เปรียบเทียบตามชื่อ
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+class Start {
+	public static void main(String[] z) {
+		List<Student> data = new ArrayList<>();
+		data.add(new Student("Clare", 163.0));
+		data.add(new Student("Bob", 167.0));
+		data.add(new Student("David", 170.0));
+		data.add(new Student("Alice", 167.0));
+		Collections.sort(data, (x,y) -> {
+			if (x.getHeight() < y.getHeight()) return -1;
+			if (x.getHeight() > y.getHeight()) return +1;
+			return x.getName().compareTo(y.getName());
+		});
+		for (Student s : data) {
+			System.out.println(s.name);
+		}
+	}
+}
+class Student {
+	public Student(String name, double height) {
+		this.name = name;
+		this.height = height;
+	}
+	final String name;
+	final double height;
+	public String getName() {
+		return name;
+	}
+	public double getHeight() {
+		return height;
+	}
+}
+```
+
 ## HashSet 
+Set คือโครงสร้างการเก็บข้อมูลที่จะไม่เก็บตัวซ้ำ
+มี 2 ตัวเหมือนกันคือ TreeSet และ HashSet
 ใน add() ของ HashSet จะเรียก hashCode() 
 เพื่อหา Slot ที่เหมาะสม 
 และเรียก equals() เพื่อหาตัวซ้ำใน Slot นั้น
