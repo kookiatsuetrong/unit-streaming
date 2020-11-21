@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
-import com.buddybuyer.model.Media;
-import com.buddybuyer.model.Genre;
-import com.buddybuyer.model.Viewer;
-import com.buddybuyer.model.Creator;
+import com.buddybuyer.media.Media;
+import com.buddybuyer.media.Genre;
+import com.buddybuyer.media.Viewer;
+import com.buddybuyer.media.Creator;
 
-public class Main {
+public class MediaService {
 	private final Set<Media> media;
 	private final Set<Viewer> viewers;
 
-	public Main(Set<Media> media, Set<Viewer> viewers) {
+	public MediaService(Set<Media> media, Set<Viewer> viewers) {
 		this.media = media;
 		this.viewers = viewers;
 	}
@@ -21,7 +21,7 @@ public class Main {
 	A: คำสั่ง int count(int rating) จะนับจำนวน media ที่มี rating ตามที่กำหนด
 	*/
 	int count(int rating) {
-		return -1; // Write your code and remove this line
+		return -1; // Remove this line to write your code.
 	}
 	
 	/*
@@ -29,7 +29,7 @@ public class Main {
 	   ทั้งหมดที่มี rating ตามที่กำหนด
 	*/
 	Set<String> listTitle(int rating) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -37,7 +37,7 @@ public class Main {
 	   ทั้งหมดที่มี rating ตามที่กำหนด
 	*/
 	Set<Media> listMedia(int rating) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -45,7 +45,7 @@ public class Main {
 	   ทั้งหมดที่มี rating อย่างน้อยเป็นค่าที่กำหนดให้
 	*/
 	Set<Media> listMediaAtLeast(int rating) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -53,7 +53,7 @@ public class Main {
 	   ทั้งหมดที่เป็น Favourite ร่วมกันของ a และ b
 	*/
 	Set<Media> listCommon(Viewer a, Viewer b) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -61,7 +61,7 @@ public class Main {
 	   of all the media which belong to one of the viewer's favourite genres
 	*/
 	Set<String> listMedia(Viewer viewer) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -69,7 +69,7 @@ public class Main {
 	   name of all viewers of the specified age
 	*/
 	Set<String> listViewers(int age) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -81,7 +81,7 @@ public class Main {
 	      the same age
 	*/
 	Set<Media> recommendMedia(Viewer viewer) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -93,7 +93,7 @@ public class Main {
 	      the same age
 	*/
 	Set<String> suggestMedia(Viewer viewer) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -105,7 +105,7 @@ public class Main {
 	      the same age
 	*/
 	Set<String> suggestMedia(Viewer viewer, int rating) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 	/*
@@ -118,7 +118,7 @@ public class Main {
 	   4. Have been created by the creator specified in the method argument
 	*/
 	Set<String> suggestMedia(Viewer viewer, Creator creator) {
-		return null; // Write your code and remove this line
+		return null; // Remove this line to write your code.
 	}
 	
 }

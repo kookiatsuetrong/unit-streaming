@@ -1,4 +1,4 @@
-package com.buddybuyer.model;
+package com.buddybuyer.media;
 
 public class Media {
 	public Media(String title, int rating, Genre genre, Creator creator) {

@@ -1,4 +1,4 @@
-package com.buddybuyer.model;
+package com.buddybuyer.media;
 import java.util.Set;
 import java.util.HashSet;
 

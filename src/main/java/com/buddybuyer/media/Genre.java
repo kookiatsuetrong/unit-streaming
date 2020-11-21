@@ -1,5 +1,5 @@
 
-package com.buddybuyer.model;
+package com.buddybuyer.media;
 
 public class Genre {
 	public Genre(String name) {

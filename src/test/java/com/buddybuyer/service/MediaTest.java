@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
-import com.buddybuyer.model.Creator;
-import com.buddybuyer.model.Genre;
-import com.buddybuyer.model.Media;
-import com.buddybuyer.model.Viewer;
-import com.buddybuyer.service.Main;
+import com.buddybuyer.media.Creator;
+import com.buddybuyer.media.Genre;
+import com.buddybuyer.media.Media;
+import com.buddybuyer.media.Viewer;
+import com.buddybuyer.service.MediaService;
 
-public class ServiceTest {
-	public ServiceTest() {
+public class MediaTest {
+	public MediaTest() {
 		Genre g1 = new Genre("G1");
 		Genre g2 = new Genre("G2");
 		Creator c1 = new Creator("C1");
@@ -52,26 +52,26 @@ public class ServiceTest {
 	Set<Media> media;
 	Set<Viewer> viewer;
 	public void testA001() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Assert.assertEquals( 1, m.count(1) );
 	}
 	public void testA002() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Assert.assertEquals( 0, m.count(0) );
 	}
 	public void testA003() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Assert.assertEquals( 2, m.count(4) );
 	}
 	public void testB001() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listTitle(2);
 		Set<String> e = new HashSet<>();
 		e.add("M002");
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testB002() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listTitle(4);
 		Set<String> e = new HashSet<>();
 		e.add("M006");
@@ -79,20 +79,20 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testB003() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listTitle(0);
 		Set<String> e = new HashSet<>();
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testC001() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMedia(2);
 		Set<Media> e = new HashSet<>();
 		e.add( new Media("M002", 2, null, null) );
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testC002() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMedia(4);
 		Set<Media> e = new HashSet<>();
 		e.add( new Media("M006", 4, null, null) );
@@ -100,20 +100,20 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testC003() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMedia(0);
 		Set<Media> e = new HashSet<>();
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testD001() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMediaAtLeast(5);
 		Set<Media> e = new HashSet<>();
 		e.add( new Media("M005", 5, null, null) );
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testD002() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMediaAtLeast(4);
 		Set<Media> e = new HashSet<>();
 		e.add( new Media("M004", 4, null, null) );
@@ -122,13 +122,13 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testD003() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<Media> r = m.listMediaAtLeast(7);
 		Set<Media> e = new HashSet<>();
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE001() {
-		Main m = new Main(media, viewer);	
+		MediaService m = new MediaService(media, viewer);	
 		Media m1 = new Media("M001", 1, null, null);
 		Media m2 = new Media("M002", 2, null, null);
 		Media m3 = new Media("M003", 3, null, null);
@@ -147,7 +147,7 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE002() {
-		Main m = new Main(media, viewer);	
+		MediaService m = new MediaService(media, viewer);	
 		Media m1 = new Media("M001", 1, null, null);
 		Media m2 = new Media("M002", 2, null, null);
 		Media m3 = new Media("M003", 3, null, null);
@@ -168,7 +168,7 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE003() {
-		Main m = new Main(media, viewer);	
+		MediaService m = new MediaService(media, viewer);	
 		Media m1 = new Media("M001", 1, null, null);
 		Media m2 = new Media("M002", 2, null, null);
 		Media m3 = new Media("M003", 3, null, null);
@@ -190,7 +190,7 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE004() {
-		Main m = new Main(media, viewer);	
+		MediaService m = new MediaService(media, viewer);	
 		Media m1 = new Media("M001", 1, null, null);
 		Media m2 = new Media("M002", 2, null, null);
 		Media m3 = new Media("M003", 3, null, null);
@@ -210,7 +210,7 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testE005() {
-		Main m = new Main(media, viewer);	
+		MediaService m = new MediaService(media, viewer);	
 		Media m1 = new Media("M001", 1, null, null);
 		Media m2 = new Media("M002", 2, null, null);
 		Media m3 = new Media("M003", 3, null, null);
@@ -247,7 +247,7 @@ public class ServiceTest {
 		Set<Media> all = new HashSet<>();
 		all.add(m1); all.add(m2); all.add(m3);
 		all.add(m4); all.add(m5); all.add(m6);
-		Main m = new Main(all, viewer);
+		MediaService m = new MediaService(all, viewer);
 		Viewer v1 = new Viewer("V1");
 		v1.likeGenre(g1);
 		Set<String> r = m.listMedia(v1);
@@ -269,7 +269,7 @@ public class ServiceTest {
 		Set<Media> all = new HashSet<>();
 		all.add(m1); all.add(m2); all.add(m3);
 		all.add(m4); all.add(m5); all.add(m6);
-		Main m = new Main(all, viewer);
+		MediaService m = new MediaService(all, viewer);
 		Viewer v1 = new Viewer("V1");
 		v1.likeGenre(g2);
 		Set<String> r = m.listMedia(v1);
@@ -291,7 +291,7 @@ public class ServiceTest {
 		Set<Media> all = new HashSet<>();
 		all.add(m1); all.add(m2); all.add(m3);
 		all.add(m4); all.add(m5); all.add(m6);
-		Main m = new Main(all, viewer);
+		MediaService m = new MediaService(all, viewer);
 		Viewer v1 = new Viewer("V1");
 		v1.likeGenre(g1);
 		v1.likeGenre(g2);
@@ -317,7 +317,7 @@ public class ServiceTest {
 		Set<Media> all = new HashSet<>();
 		all.add(m1); all.add(m2); all.add(m3);
 		all.add(m4); all.add(m5); all.add(m6);
-		Main m = new Main(all, viewer);
+		MediaService m = new MediaService(all, viewer);
 		Viewer v1 = new Viewer("V1");
 		Set<String> r = m.listMedia(v1);
 		Set<String> e = new HashSet<>();
@@ -336,7 +336,7 @@ public class ServiceTest {
 		Set<Media> all = new HashSet<>();
 		all.add(m1); all.add(m2); all.add(m3);
 		all.add(m4); all.add(m5); all.add(m6);
-		Main m = new Main(all, viewer);
+		MediaService m = new MediaService(all, viewer);
 		Viewer v1 = new Viewer("V1");
 		v1.likeGenre(g3);
 		Set<String> r = m.listMedia(v1);
@@ -344,7 +344,7 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testG001() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listViewers(21);
 		Set<String> e = new HashSet<>();
 		e.add("V1");
@@ -352,13 +352,13 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testG002() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listViewers(17);
 		Set<String> e = new HashSet<>();
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	public void testG003() {
-		Main m = new Main(media, viewer);
+		MediaService m = new MediaService(media, viewer);
 		Set<String> r = m.listViewers(25);
 		Set<String> e = new HashSet<>();
 		e.add("V3");
@@ -394,7 +394,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<Media> r = m.recommendMedia(v1);
 		Set<Media> e = new HashSet<Media>();
 		e.add(m2);
@@ -428,7 +428,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<Media> r = m.recommendMedia(v2);
 		Set<Media> e = new HashSet<Media>();
 		Assert.assertTrue( e.containsAll(r) );
@@ -464,7 +464,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<Media> r = m.recommendMedia(v3);
 		Set<Media> e = new HashSet<Media>();
 		e.add(m5);
@@ -497,7 +497,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v1);
 		Set<String> e = new HashSet<String>();
 		e.add("M2");
@@ -536,7 +536,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v3);
 		Set<String> e = new HashSet<String>();
 		e.add("M5");
@@ -574,7 +574,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v5);
 		Set<String> e = new HashSet<String>();
 		e.add("M4");
@@ -612,7 +612,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v5, 4);
 		Set<String> e = new HashSet<String>();
 		e.add("M4");
@@ -650,7 +650,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v5, 5);
 		Set<String> e = new HashSet<String>();
 		Assert.assertTrue( e.containsAll(r) );
@@ -687,7 +687,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v1, 4);
 		Set<String> e = new HashSet<String>();
 		e.add("M2");
@@ -726,7 +726,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v1, 5);
 		Set<String> e = new HashSet<String>();
 		Assert.assertTrue( e.containsAll(r) );
@@ -763,7 +763,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v1, c1);
 		Set<String> e = new HashSet<String>();
 		e.add("M2");
@@ -802,7 +802,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v1, c2);
 		Set<String> e = new HashSet<String>();
 		Assert.assertTrue( e.containsAll(r) );
@@ -839,7 +839,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v3, c2);
 		Set<String> e = new HashSet<String>();
 		e.add("M5");
@@ -879,7 +879,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v3, c1);
 		Set<String> e = new HashSet<String>();
 		e.add("M3");
@@ -919,7 +919,7 @@ public class ServiceTest {
 		viewers.add(v1); viewers.add(v2); viewers.add(v3);
 		viewers.add(v4); viewers.add(v5);
 		
-		Main m = new Main(media, viewers);
+		MediaService m = new MediaService(media, viewers);
 		Set<String> r = m.suggestMedia(v3, c2);
 		Set<String> e = new HashSet<String>();
 		e.add("M5");
