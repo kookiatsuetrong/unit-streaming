@@ -92,6 +92,54 @@ class Sample {
 ระบบขนาดใหญ่ต้องอ่านข้อมูลผ่าน getter เท่านั้น
 และเปลี่ยนข้อมูลผ่าน setter แต่ในตัวอย่างด้านบนไม่มี
 
+## List
+List คือโครงสร้างข้อมูลที่เพิ่มข้อมูลเข้ามาได้ ไม่ต้องรู้ขนาดก่อนล่วงหน้า
+ใน Java มี 2 แบบคือ ArrayList และ LinkedList
+* ArrayList คือ List ที่สร้างมาจาก Array
+* LinkedList คือ List ที่สร้างมาจากการ Linked หรือ เชื่อมโยงนั่นเอง
+
+List สามารถเก็บตัวซ้ำได้ ถ้าต้องการ Sort ข้อมูลต้องมีคุณสมบัติ Comparable ด้วย
+แต่การเขียน Comparable ค่อนข้างยาก และต้องไปแก้ Class ให้รองรับ
+ดังนั้น ถ้าต้องการ Sort ข้อมูล เปลี่ยนไปใช้แบบ Comparator จะง่ายกว่า เช่น
+
+```
+Collections.sort(data, (x,y) -> x.getName().compareTo(y.getName()) );
+```
+
+ตัวอย่างการเรียงข้อมูลใน ArrayList
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+class Start {
+	public static void main(String[] z) {
+		List<Student> data = new ArrayList<>();
+		data.add(new Student("Clare", 163.0));
+		data.add(new Student("Bob", 167.0));
+		data.add(new Student("David", 170.0));
+		data.add(new Student("Alice", 165.0));
+		Collections.sort(data, (x,y) -> x.getName().compareTo(y.getName()) );
+		for (Student s : data) {
+			System.out.println(s.name);
+		}
+	}
+}
+class Student {
+	public Student(String name, double height) {
+		this.name = name;
+		this.height = height;
+	}
+	final String name;
+	final double height;
+	public String getName() {
+		return name;
+	}
+	public double getHeight() {
+		return height;
+	}
+}
+```
+
 ## HashSet 
 ใน add() ของ HashSet จะเรียก hashCode() 
 เพื่อหา Slot ที่เหมาะสม 

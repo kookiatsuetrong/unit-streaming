@@ -32,6 +32,8 @@ public class TheatreService {
 	Set<User> getCommonFriends(User u, User v) {
 		return null; // Remove this line to write your code.
 	}
+	// Given user, list all watchedList title order by name
+	// Given two users, list all common movies watchedList
 	
 	/*
 	Z:  Implement List<Movie> find(User user) method that will 

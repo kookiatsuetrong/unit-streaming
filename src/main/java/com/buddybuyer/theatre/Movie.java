@@ -1,6 +1,5 @@
 package com.buddybuyer.theatre;
 
-
 public class Movie {
 	public Movie(String title, int rating) {
 		this.title = title;
@@ -32,5 +31,3 @@ public class Movie {
 		this.rating = r;
 	}
 }
-
-
