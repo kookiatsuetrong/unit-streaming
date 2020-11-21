@@ -73,6 +73,18 @@ public class Main {
 	}
 	
 	/*
+	U: The method Set<Media> recommendMedia(Viewer viewer) should return 
+	   all the media that meet all the following criteria:
+	   1. Have a rating of four or higher
+	   2. Belong to one of the viewer's favourite genres
+	   3. Belong to favourite media's list of at least one differrent user of 
+	      the same age
+	*/
+	Set<Media> recommendMedia(Viewer viewer) {
+		return null; // Write your code and remove this line
+	}
+	
+	/*
 	X: The method Set<String> suggestMedia(Viewer viewer) should return titles
 	   of all the media that meet all the following criteria:
 	   1. Have a rating of four or higher
@@ -81,30 +93,7 @@ public class Main {
 	      the same age
 	*/
 	Set<String> suggestMedia(Viewer viewer) {
-		Set<Media> listSameAge = new HashSet<Media>();
-		for (Viewer v : viewers) {
-			if (viewer.equals(v)) {
-				// skip this user
-			} else {
-				if (viewer.getAge() == v.getAge()) {
-					Set<Media> favourite = v.getFavouriteMedia();
-					for (Media m : favourite) {
-						listSameAge.add(m);
-					}
-				}
-			}
-		}
-		Set<Genre> fg = viewer.getFavouriteGenres();
-		Set<String> result = new HashSet<String>();
-		for (Media m : media) {
-			if (m.getRating() >= 4 &&
-				fg.contains(m.getGenre()) &&
-				listSameAge.contains(m)) {
-				result.add(m.getTitle());
-			}
-		}
-		return result;
-		// return null; // Write your code and remove this line
+		return null; // Write your code and remove this line
 	}
 	
 	/*

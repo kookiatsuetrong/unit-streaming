@@ -367,6 +367,110 @@ public class ServiceTest {
 		Assert.assertTrue( e.containsAll(r) );
 	}
 	
+	
+	public void testU001() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<Media> r = m.recommendMedia(v1);
+		Set<Media> e = new HashSet<Media>();
+		e.add(m2);
+		e.add(m3);
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testU002() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<Media> r = m.recommendMedia(v2);
+		Set<Media> e = new HashSet<Media>();
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testU003() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<Media> r = m.recommendMedia(v3);
+		Set<Media> e = new HashSet<Media>();
+		e.add(m5);
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
 	public void testX001() {
 		Genre g1 = new Genre("G1");
 		Genre g2 = new Genre("G2");
@@ -398,6 +502,428 @@ public class ServiceTest {
 		Set<String> e = new HashSet<String>();
 		e.add("M2");
 		e.add("M3");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testX002() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v3);
+		Set<String> e = new HashSet<String>();
+		e.add("M5");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testX003() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v5);
+		Set<String> e = new HashSet<String>();
+		e.add("M4");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testY001() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v5, 4);
+		Set<String> e = new HashSet<String>();
+		e.add("M4");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testY002() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v5, 5);
+		Set<String> e = new HashSet<String>();
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testY003() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v1, 4);
+		Set<String> e = new HashSet<String>();
+		e.add("M2");
+		e.add("M3");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testY004() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v1, 5);
+		Set<String> e = new HashSet<String>();
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testZ001() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v1, c1);
+		Set<String> e = new HashSet<String>();
+		e.add("M2");
+		e.add("M3");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testZ002() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v1, c2);
+		Set<String> e = new HashSet<String>();
+		Assert.assertTrue( e.containsAll(r) );
+	}
+	
+	public void testZ003() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v3, c2);
+		Set<String> e = new HashSet<String>();
+		e.add("M5");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+
+	public void testZ004() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v3.likeGenre(g1);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+	
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v3, c1);
+		Set<String> e = new HashSet<String>();
+		e.add("M3");
+		Assert.assertTrue( e.containsAll(r) );
+	}
+
+	public void testZ005() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		v3.likeGenre(g2);
+		v3.likeGenre(g1);
+		v4.likeMedia(m4);
+		v5.likeMedia(m3);
+		v5.likeMedia(m5);
+		v5.likeGenre(g1);
+	
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v3, c2);
+		Set<String> e = new HashSet<String>();
+		e.add("M5");
+		e.add("M4");
 		Assert.assertTrue( e.containsAll(r) );
 	}
 }
