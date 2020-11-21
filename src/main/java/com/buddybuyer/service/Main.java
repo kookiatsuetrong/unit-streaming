@@ -81,7 +81,30 @@ public class Main {
 	      the same age
 	*/
 	Set<String> suggestMedia(Viewer viewer) {
-		return null; // Write your code and remove this line
+		Set<Media> listSameAge = new HashSet<Media>();
+		for (Viewer v : viewers) {
+			if (viewer.equals(v)) {
+				// skip this user
+			} else {
+				if (viewer.getAge() == v.getAge()) {
+					Set<Media> favourite = v.getFavouriteMedia();
+					for (Media m : favourite) {
+						listSameAge.add(m);
+					}
+				}
+			}
+		}
+		Set<Genre> fg = viewer.getFavouriteGenres();
+		Set<String> result = new HashSet<String>();
+		for (Media m : media) {
+			if (m.getRating() >= 4 &&
+				fg.contains(m.getGenre()) &&
+				listSameAge.contains(m)) {
+				result.add(m.getTitle());
+			}
+		}
+		return result;
+		// return null; // Write your code and remove this line
 	}
 	
 	/*

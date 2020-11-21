@@ -366,4 +366,38 @@ public class ServiceTest {
 		e.add("V6");
 		Assert.assertTrue( e.containsAll(r) );
 	}
+	
+	public void testX001() {
+		Genre g1 = new Genre("G1");
+		Genre g2 = new Genre("G2");
+		Creator c1 = new Creator("C1");
+		Creator c2 = new Creator("C2");
+		Media m1 = new Media("M1", 4, g1, c1);
+		Media m2 = new Media("M2", 4, g1, c1);
+		Media m3 = new Media("M3", 4, g1, c1);
+		Media m4 = new Media("M4", 4, g1, c2);
+		Media m5 = new Media("M5", 4, g2, c2);
+		Media m6 = new Media("M6", 4, g2, c2);
+		Set<Media> media = new HashSet<Media>();
+		media.add(m1); media.add(m2); media.add(m3);
+		media.add(m4); media.add(m5); media.add(m6);
+		Viewer v1 = new Viewer("V20A", 20);
+		Viewer v2 = new Viewer("V20B", 20);
+		Viewer v3 = new Viewer("V25C", 25);
+		Viewer v4 = new Viewer("V25D", 25);
+		Viewer v5 = new Viewer("V25E", 25);
+		v1.likeGenre(g1);
+		v2.likeMedia(m2);
+		v2.likeMedia(m3);
+		Set<Viewer> viewers = new HashSet<Viewer>();
+		viewers.add(v1); viewers.add(v2); viewers.add(v3);
+		viewers.add(v4); viewers.add(v5);
+		
+		Main m = new Main(media, viewers);
+		Set<String> r = m.suggestMedia(v1);
+		Set<String> e = new HashSet<String>();
+		e.add("M2");
+		e.add("M3");
+		Assert.assertTrue( e.containsAll(r) );
+	}
 }
