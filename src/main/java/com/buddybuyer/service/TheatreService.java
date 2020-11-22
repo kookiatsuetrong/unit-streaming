@@ -26,20 +26,29 @@ public class TheatreService {
 		return null; // Remove this line to write your code.
 	}
 	/*
-	C:  The method getCommonFriends(User u, User v) will return 
+	C:  The method Set<User> getCommonFriends(User u, User v) will return 
 		all common friends of two given users.
 	*/
 	Set<User> getCommonFriends(User u, User v) {
 		return null; // Remove this line to write your code.
 	}
-	// Given user, list all watchedList title order by name
-	// Given two users, list all common movies watchedList
 	
 	/*
-	Z:  Implement List<Movie> find(User user) method that will 
+	D:  The method Set<Movie> getCommonWatchedList(User u, User v)
+		will return all common watched list of both users in any order.
+	*/
+	Set<Movie> getCommonWatchedList(User u, User v) {
+		return null; // Remove this line to write your code.
+	}
+	
+	/*
+	Z:  Implement List<Movie> suggestMovie(User user) method that will 
 		return a list of top four movie titles, that have been most 
 		watchlisted by friends of a given user.
 		Movies that have equal watchlist count, should be ordered 
 		alphabetically.
 	*/
+	List<Movie> suggestMovie(User user) {
+		return null; // Remove this line to write your code.
+	}
 }

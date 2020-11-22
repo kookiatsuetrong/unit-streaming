@@ -176,4 +176,230 @@ public class TheatreTest {
 		Set<User> e = new HashSet<User>();
 		Assert.assertTrue(e.containsAll(r));
 	}
+	
+	public void testD001() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u1 = new User("U1");
+		u1.addToWatchedList(m1);
+		u1.addToWatchedList(m2);
+		u1.addToWatchedList(m3);
+		u1.addToWatchedList(m4);
+		User u2 = new User("U2");
+		u2.addToWatchedList(m4);
+		u2.addToWatchedList(m1);
+		TheatreService service = new TheatreService();
+		
+		Set<Movie> result = service.getCommonWatchedList(u1, u2);
+		Set<Movie> e = new HashSet<Movie>();
+		e.add(m1);
+		e.add(m4);
+		
+		Assert.assertTrue(e.containsAll(result));
+	}
+	public void testD002() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u1 = new User("U1");
+		u1.addToWatchedList(m1);
+		u1.addToWatchedList(m2);
+		u1.addToWatchedList(m3);
+		User u2 = new User("U2");
+		u2.addToWatchedList(m5);
+		u2.addToWatchedList(m4);
+		TheatreService service = new TheatreService();
+		
+		Set<Movie> result = service.getCommonWatchedList(u1, u2);
+		Set<Movie> e = new HashSet<Movie>();
+		
+		Assert.assertTrue(e.containsAll(result));
+	}
+	
+	public void testZ001() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m1);
+		f1.addToWatchedList(m2);
+		f1.addToWatchedList(m3);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m4);
+		f2.addToWatchedList(m5);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m1);
+		e.add(m2);
+		e.add(m3);
+		e.add(m4);
+		Assert.assertEquals(e, result);
+	}
+	public void testZ002() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m1);
+		f1.addToWatchedList(m2);
+		f1.addToWatchedList(m3);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m3);
+		f2.addToWatchedList(m4);
+		f2.addToWatchedList(m5);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m3);
+		e.add(m1);
+		e.add(m2);
+		e.add(m4);
+		Assert.assertEquals(e, result);
+	}
+	
+	public void testZ003() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m1);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m5);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m1);
+		e.add(m5);
+		Assert.assertEquals(e, result);
+	}
+	public void testZ004() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m1);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m5);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m1);
+		e.add(m5);
+		Assert.assertEquals(e, result);
+	}
+	public void testZ005() {
+		User u = new User("U");
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		Assert.assertEquals(e, result);
+	}
+	public void testZ006() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m3);
+		f1.addToWatchedList(m4);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m1);
+		f2.addToWatchedList(m2);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m1);
+		e.add(m2);
+		e.add(m3);
+		e.add(m4);
+		Assert.assertEquals(e, result);
+	}
+	public void testZ007() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m3);
+		f1.addToWatchedList(m4);
+		f1.addToWatchedList(m5);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m1);
+		f2.addToWatchedList(m2);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m1);
+		e.add(m2);
+		e.add(m3);
+		e.add(m4);
+		Assert.assertEquals(e, result);
+	}
+	public void testZ008() {
+		Movie m1 = new Movie("M1", 4);
+		Movie m2 = new Movie("M2", 4);
+		Movie m3 = new Movie("M3", 4);
+		Movie m4 = new Movie("M4", 4);
+		Movie m5 = new Movie("M5", 4);
+		User u = new User("U");
+		User f1 = new User("F1");
+		f1.addToWatchedList(m3);
+		f1.addToWatchedList(m4);
+		f1.addToWatchedList(m5);
+		User f2 = new User("F2");
+		f2.addToWatchedList(m1);
+		f2.addToWatchedList(m2);
+		f2.addToWatchedList(m5);
+		Set<User> f = u.getFriends();
+		f.add(f1);
+		f.add(f2);
+		TheatreService service = new TheatreService();
+		List<Movie> result = service.suggestMovie(u);
+		List<Movie> e = new ArrayList<Movie>();
+		e.add(m5);
+		e.add(m1);
+		e.add(m2);
+		e.add(m3);
+		Assert.assertEquals(e, result);
+	}
 }
