@@ -50,14 +50,23 @@ public class FootballService {
 		
 		return result;
 	}
+	
 	/*
-	A: Return player's number by given name, or -1 if not found.
+	A:  The function int getNumber(String name) will return player's number 
+		by given name, or -1 if not found.
 	*/
 	int getNumber(String name) {
 		return -1;
 	}
 	
-	// Given player, return club
+	/*
+	B:  The function String getClub(String playerName) will return player's
+		club name, or null if not found.
+	*/
+	String getClub(String playerName) {
+		return "";
+	}
+	
 	// Given club, return all players
 	// Given club, count players
 	// Insert a player to table

@@ -54,7 +54,23 @@ public class FootballTest {
 		int r = fs.getNumber("Steven G");
 		Assert.assertEquals(8, r);
 	}
+	public void test004() {
+		FootballService fs = new FootballService();
+		String r = fs.getClub("Frank L");
+		Assert.assertEquals("Chelsea", r);
+	}
+	public void test005() {
+		FootballService fs = new FootballService();
+		String r = fs.getClub("David B");
+		Assert.assertEquals("Machester United", r);
+	}
+	public void test006() {
+		FootballService fs = new FootballService();
+		String r = fs.getClub("Steven G");
+		Assert.assertEquals("Liverpool", r);
+	}
 	
+	/*
 	public void testA() {
 		FootballService fs = new FootballService();
 		List<Player> result = fs.getPlayers();
@@ -65,6 +81,7 @@ public class FootballTest {
 		expected.add(new Player("Steven G"));
 		Assert.assertEquals(expected, result);
 	}
+	*/
 	
 	/*
 	public void testB() {
