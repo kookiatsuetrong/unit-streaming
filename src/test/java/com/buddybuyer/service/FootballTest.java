@@ -69,6 +69,11 @@ public class FootballTest {
 		String r = fs.getClub("Steven G");
 		Assert.assertEquals("Liverpool", r);
 	}
+	public void test007() {
+		FootballService fs = new FootballService();
+		String r = fs.getClub("James B");
+		Assert.assertEquals(null, r);
+	}
 	
 	/*
 	public void testA() {
