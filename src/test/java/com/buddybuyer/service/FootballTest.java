@@ -18,29 +18,56 @@ public class FootballTest {
 			Connection cn = DriverManager.getConnection(url);
 			Statement sm = cn.createStatement();
 			
-			sm.execute("  create table players(" +
-						" name varchar(80) unique not null, " +
-						" number int)");
-			sm.execute("insert into players(name,number) values('P1', 1)");
-			sm.execute("insert into players(name,number) values('P2', 2)");
-			sm.execute("insert into players(name,number) values('P3', 3)");
+			sm.execute( " create table players(                 " +
+						" name     varchar(80) unique not null, " +
+						" number   int,                         " +
+						" club     varchar(80)  )               " );
+			
+			sm.execute( " insert into players(name,number,club) " +
+						" values('Machael O', 10, 'Liverpool')  ");
+			
+			sm.execute( " insert into players(name,number,club) " +
+						" values('David B',7,'Machester United')");
+			
+			sm.execute( " insert into players(name,number,club) " +
+						" values('Frank L', 8, 'Chelsea')       ");
+			
+			sm.execute( " insert into players(name,number,club) " +
+						" values('Steven G', 8, 'Liverpool')    ");
 			sm.close();
 			cn.close();
 		} catch (Exception e) { }
 	}
 	
-	public void test000() {
+	public void test001() {
+		FootballService fs = new FootballService();
+		int r = fs.getNumber("David B");
+		Assert.assertEquals(7, r);
+	}
+	public void test002() {
+		FootballService fs = new FootballService();
+		int r = fs.getNumber("Frank L");
+		Assert.assertEquals(8, r);
+	}
+	public void test003() {
+		FootballService fs = new FootballService();
+		int r = fs.getNumber("Steven G");
+		Assert.assertEquals(8, r);
+	}
+	
+	public void testA() {
 		FootballService fs = new FootballService();
 		List<Player> result = fs.getPlayers();
 		List<Player> expected = new ArrayList<>();
-		expected.add(new Player("P1", 1));
-		expected.add(new Player("P2", 2));
-		expected.add(new Player("P3", 3));
+		expected.add(new Player("Machael O"));
+		expected.add(new Player("David B"));
+		expected.add(new Player("Frank L"));
+		expected.add(new Player("Steven G"));
 		Assert.assertEquals(expected, result);
 	}
 	
 	/*
-	public void test001() {
+	public void testB() {
 		int count = 0;
 		try {
 			String url = "jdbc:derby:memory:demo;create=true;";
@@ -64,7 +91,7 @@ public class FootballTest {
 		System.out.flush();
 		Assert.assertEquals(3, count);
 	}
-	public void test002() {
+	public void testC() {
 		int count = 0;
 		try {
 			String url = "jdbc:derby:memory:demo;";

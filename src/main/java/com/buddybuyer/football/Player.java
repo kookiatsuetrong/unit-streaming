@@ -1,9 +1,8 @@
 package com.buddybuyer.football;
 
 public class Player {
-	public Player(String s, int n) {
+	public Player(String s) {
 		name = s;
-		number = n;
 	}
 	String name = "";
 	int number = 0;
